@@ -1,4 +1,11 @@
 import { combineReducers } from 'redux';
 import counterStore from './counterStore';
+import postStore from './postStore';
 
-export default combineReducers({counter: counterStore});
+const reducers =
+{
+    counter: counterStore,
+    post: postStore
+}
+
+export default combineReducers(reducers);

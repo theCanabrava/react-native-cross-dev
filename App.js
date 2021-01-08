@@ -1,15 +1,17 @@
+import 'react-native-gesture-handler';
 import React from 'react';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 
 import reducer from './src/reducer';
-import MainScreen from './src/screens/MainScreen';
+import MainNavigator from './src/navigation/MainNavigator';
 
-const store = createStore(reducer);
+const store = createStore(reducer, applyMiddleware(thunk));
 
 export default () =>
 (
     <Provider store={store}>
-        <MainScreen/>
+        <MainNavigator/>
     </Provider>
 )
